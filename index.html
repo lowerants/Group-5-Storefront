@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penn State Merch Storefront</title>
+
+<!-- Bootstrap CSS (For Professional Look) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+
+body {
+background-color: #f8f9fa;
+}
+
+h2 {
+color: #002d72; /* Penn State Blue */
+font-weight: bold;
+}
+
+.navbar {
+background-color: #002d72; /* Penn State Blue */
+}
+
+.navbar-brand, .nav-link {
+color: #ffffff;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+color: #ffffff;
+text-decoration: underline;
+}
+
+.btn-primary {
+background-color: #002d72; /* Penn State Blue */
+border-color: #002d72;
+}
+
+.btn-primary:hover {
+background-color: #ffffff; /* White on hover */
+color: #002d72;
+border-color: #002d72;
+}
+
+
+
+.footer {
+background-color: #002d72;
+color: #ffffff;
+padding: 20px 0;
+text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+
+<a class="navbar-brand" href="">Penn State Merchandise <img alt="i" src="https://seeklogo.com/images/P/penn-state-nittany-lions-logo-F0E68D2F94-seeklogo.com.png" width="45" style="vertical-align:middle;margin:0px 20px"></a>
+
+
+
+
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="#">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="shop.html">Shop</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#">Cart</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="index.html">My Shopper</a>
+</li>
+</ul>
+</div>
+</nav>
+
+
+
+
+<div class="container mt-5">
+<h2>Shopper Management</h2>
+<!-- Shopper Management Form (HTML structure) -->
+<form id="shopperForm">
+<!-- Email and Name -->
+<div class="row">
+<div class="col-md-6">
+<label for="email">Email <span class="text-danger">*</span></label>
+<input type="email" class="form-control" id="email" placeholder="Enter email" required>
+</div>
+<div class="col-md-6">
+<label for="name">Name <span class="text-danger">*</span></label>
+<input type="text" class="form-control" id="name" placeholder="Enter name" required>
+</div>
+</div>
+
+<!-- Phone and Age -->
+<div class="row mt-3">
+<div class="col-md-6">
+<label for="phone">Contact Phone</label>
+<input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+</div>
+<div class="col-md-6">
+<label for="age">Age <span class="text-danger">*</span></label>
+<input type="number" class="form-control" id="age" placeholder="Enter age" required>
+</div>
+</div>
+
+<!-- Address -->
+<div class="row mt-3">
+<div class="col-12">
+<label for="address">Address <span class="text-danger">*</span></label>
+<input type="text" class="form-control" id="address" placeholder="Enter address" required>
+</div>
+</div>
+
+<!-- Submit Button (Bootstrap Button) -->
+<div class="row mt-4">
+<div class="col-12">
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+</form>
+
+<!-- Output JSON Display -->
+<div id="output" class="mt-4"></div>
+</div>
+	
+
+<!-- Footer -->
+<div class="footer">
+<p>&copy; 2024 Penn State Merch Storefront. All Rights Reserved.</p>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript for Form and JSON -->
+<script>
+document.getElementById("shopperForm").addEventListener("submit", function(event) {
+event.preventDefault();
+
+// Collect form data
+const shopperEmail = document.getElementById("email").value;
+const shopperName = document.getElementById("name").value;
+const shopperPhone = document.getElementById("phone").value;
+const shopperAge = document.getElementById("age").value;
+const shopperAddress = document.getElementById("address").value;
+
+// Make Sure its filled
+if (!shopperEmail || !shopperName || !shopperAge || !shopperAddress) {
+alert("Please fill in all required fields.");
+return;
+}
+
+// Create JSON with form data
+const shopper = {
+email: shopperEmail,
+name: shopperName,
+phone: shopperPhone,
+age: shopperAge,
+address: shopperAddress
+};
+
+// Display JSON on the page
+document.getElementById("output").textContent = JSON.stringify(shopper, null, 2);
+});
+</script>
+
+</body>
+</html>
