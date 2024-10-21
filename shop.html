@@ -148,6 +148,18 @@
                 alert("Please fill in all fields.");
                 return;
             }
+        const order = {
+        product: product,
+        size: size,
+        quantity: quantity,
+        email: email
+    };
+
+    // This will convert the order to a JSON string
+    const orderJSON = JSON.stringify(order);
+
+    // This will display the JSON in the console 
+    console.log("Order JSON:", orderJSON);
 
             // Display an alert for successful submission
             alert(`Order Summary:\n\nProduct: ${product}\nSize: ${size}\nQuantity: ${quantity}\nEmail: ${email}\n\nThank you for your order!`);
