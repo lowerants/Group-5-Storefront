@@ -50,6 +50,23 @@
             margin-top: 30px;
         }
     </style>
+      <style>
+        .product-title {
+          color: #00274d; /* Penn State dark blue */
+          font-weight: 600;
+        }
+        .product-price {
+          color: #0056b3;
+          font-weight: bold;
+        }
+        .btn-custom {
+          background-color: #0056b3;
+          color: white;
+        }
+        .btn-custom:hover {
+          background-color: #003f88;
+        }
+      </style>
 </head>
 <body>
 
@@ -122,6 +139,73 @@
         </form>
     </div>
 
+      <!-- Header Section -->
+  <!-- <header class="bg-primary text-white text-center py-4">
+    <h1 class="display-4">Penn State Merchandise Store</h1>
+    <p class="lead">Shop for Your Favorite Penn State Gear!</p>
+  </header> -->
+
+  <!-- Product Management Section -->
+  <div class="container mt-5">
+    <h2 class="mb-4 text-center">Our Products</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      
+      <!-- Product Card 1 -->
+      <div class="col">
+        <div class="card h-100">
+          <p class="card-text">ID: shirt1 </p>
+          <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_t_shirt_arching_over_lion_head_navy_nittany_lions_psu_003psu_p3814.jpg" class="card-img-top" alt="T-shirt">
+          <div class="card-body text-center">
+            <h5 class="card-title product-title">Penn State T-shirt</h5>
+            <p class="card-text">Comfortable and high-quality cotton T-shirt with Penn State logo.</p>            <p class="card-text">Category: clothes </p>
+            <p class="card-text">Weight: 2oz</p>
+            <p class="product-price">$19.99</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-custom">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col">
+        <div class="card h-100">
+          <p class="card-text">ID: hoodie1 </p>
+          <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_hooded_sweatshirt_arching_over_lion_head_navy_nittany_lions_psu_102psu_p4572.jpg" class="card-img-top" alt="Hoodie">
+          <div class="card-body text-center">
+            <h5 class="card-title product-title">Penn State Hoodie</h5>
+            <p class="card-text">Stay warm with this soft and stylish Penn State hoodie.</p>
+            <p class="card-text">Category: clothes </p>
+            <p class="card-text">Weight: 4oz</p>
+            <p class="product-price">$39.99</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-custom">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col">
+        <div class="card h-100">
+          <p class="card-text">ID: cap1 </p>
+          <img src="https://www.lions-pride.com/cdn/shop/products/1513870.jpg?v=1676050325&width=1280" class="card-img-top" alt="Cap">
+          <div class="card-body text-center">
+            <h5 class="card-title product-title">Penn State Cap</h5>
+            <p class="card-text">Classic Penn State cap, perfect for any fan.</p>
+            <p class="card-text">Category: accessories </p>
+            <p class="card-text">Weight: 1oz</p>
+            <p class="product-price">$14.99</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-custom">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
     <!-- Footer -->
     <div class="footer">
         <p>&copy; 2024 Penn State Merch Storefront. All Rights Reserved.</p>
@@ -148,18 +232,18 @@
                 alert("Please fill in all fields.");
                 return;
             }
-        const order = {
-        product: product,
-        size: size,
-        quantity: quantity,
-        email: email
-    };
+            const order = {
+                product: product,
+                size: size,
+                quantity: quantity,
+                email: email
+            };
 
-    // This will convert the order to a JSON string
-    const orderJSON = JSON.stringify(order);
+            // This will convert the order to a JSON string
+            const orderJSON = JSON.stringify(order);
 
-    // This will display the JSON in the console 
-    console.log("Order JSON:", orderJSON);
+            // This will display the JSON in the console 
+            console.log("Order JSON:", orderJSON);
 
             // Display an alert for successful submission
             alert(`Order Summary:\n\nProduct: ${product}\nSize: ${size}\nQuantity: ${quantity}\nEmail: ${email}\n\nThank you for your order!`);

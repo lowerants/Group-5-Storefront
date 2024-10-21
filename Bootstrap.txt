@@ -26,10 +26,10 @@
 <body>
 
   <!-- Header Section -->
-  <header class="bg-primary text-white text-center py-4">
+  <!-- <header class="bg-primary text-white text-center py-4">
     <h1 class="display-4">Penn State Merchandise Store</h1>
     <p class="lead">Shop for Your Favorite Penn State Gear!</p>
-  </header>
+  </header> -->
 
   <!-- Product Management Section -->
   <div class="container mt-5">
