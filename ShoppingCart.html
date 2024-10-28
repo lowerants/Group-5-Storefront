@@ -208,6 +208,38 @@
         cart = [];
         renderCart();
     });
+    
+    //AJAX
+    function sendCartData() {
+        
+        const cartData = JSON.stringify(cart);
+
+        const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+        fetch(apiUrl, {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: cartData
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            console.log("Cart data sent successfully:", data);
+            alert("Cart data has been sent to the server!");
+        })
+        .catch(error => {
+            console.error("Error sending cart data:", error);
+            alert("Failed to send cart data to the server.");
+        });
+    }
+
+    document.getElementById("sendCartButton").addEventListener("click", sendCartData);
 </script>
 
 </body>
