@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping Selection - Penn State Merch Storefront</title>
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    background-color: #f8f9fa;
+}
+h2 {
+    color: #002d72; /* Penn State Blue */
+    font-weight: bold;
+}
+.navbar {
+    background-color: #002d72; /* Penn State Blue */
+}
+.navbar-brand, .nav-link {
+    color: #ffffff;
+}
+.navbar-brand:hover, .nav-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.btn-primary {
+    background-color: #002d72; /* Penn State Blue */
+    border-color: #002d72;
+}
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #002d72;
+    border-color: #002d72;
+}
+.footer {
+    background-color: #002d72;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="index.html">Penn State Merchandise</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="shipping.html">Shipping Selection</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h2>Shipping Selection</h2>
+    <p>Select your shipping details below to complete your order:</p>
+    
+    <!-- Shipping Form -->
+    <form id="shippingForm">
+        <!-- Shipping Destination -->
+        <div class="form-group">
+            <label for="destination">Shipping Destination <span class="text-danger">*</span></label>
+            <select class="form-control" id="destination" required>
+                <option value="">Select Country</option>
+                <option value="USA">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">United Kingdom</option>
+            </select>
+        </div>
+        
+        <!-- Shipping Carrier -->
+        <div class="form-group">
+            <label for="carrier">Shipping Carrier <span class="text-danger">*</span></label>
+            <select class="form-control" id="carrier" required>
+                <option value="">Select Carrier</option>
+                <option value="UPS">UPS</option>
+                <option value="FedEx">FedEx</option>
+                <option value="USPS">USPS</option>
+                <option value="DHL">DHL</option>
+            </select>
+        </div>
+        
+        <!-- Shipping Method -->
+        <div class="form-group">
+            <label for="method">Shipping Method <span class="text-danger">*</span></label>
+            <select class="form-control" id="method" required>
+                <option value="">Select Method</option>
+                <option value="Standard">Standard (5-7 Business Days)</option>
+                <option value="Express">Express (2-3 Business Days)</option>
+                <option value="Overnight">Overnight</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Confirm Shipping Details</button>
+    </form>
+
+    <!-- Display Shipping Selection as JSON -->
+    <div id="output" class="mt-4"></div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2024 Penn State Merch Storefront. All Rights Reserved.</p>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
