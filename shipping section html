@@ -125,5 +125,26 @@ h2 {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+	<!-- JSON -->
+	<script>
+   document.getElementById('shippingForm').addEventListener('submit',
+		function(event) {
+        event.preventDefault();
+
+        const destination = document.getElementById('destination').value;
+        const carrier = document.getElementById('carrier').value;
+        const method = document.getElementById('method').value;
+
+        const shippingDetails = {
+            destination: destination,
+            carrier: carrier,
+            method: method
+        };
+
+        console.log(JSON.stringify(shippingDetails, null, 2));
+
+        localStorage.setItem('shippingDetails', JSON.stringify(shippingDetails));
+    });
+</script>
 </body>
 </html>
