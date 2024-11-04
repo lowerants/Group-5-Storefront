@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="shippingApp">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shipping Selection - Penn State Merch Storefront</title>
 
-
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 <style>
 body {
     background-color: #f8f9fa;
@@ -43,7 +42,7 @@ h2 {
 }
 </style>
 </head>
-<body>
+<body ng-controller="ShippingController">
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg">
@@ -72,11 +71,11 @@ h2 {
     <p>Select your shipping details below to complete your order:</p>
     
     <!-- Shipping Form -->
-    <form id="shippingForm">
+    <form ng-submit="submitShippingForm()">
         <!-- Shipping Destination -->
         <div class="form-group">
             <label for="destination">Shipping Destination <span class="text-danger">*</span></label>
-            <select class="form-control" id="destination" required>
+            <select class="form-control" ng-model="shippingDetails.destination" required>
                 <option value="">Select Country</option>
                 <option value="USA">United States</option>
                 <option value="Canada">Canada</option>
@@ -87,7 +86,7 @@ h2 {
         <!-- Shipping Carrier -->
         <div class="form-group">
             <label for="carrier">Shipping Carrier <span class="text-danger">*</span></label>
-            <select class="form-control" id="carrier" required>
+            <select class="form-control" ng-model="shippingDetails.carrier" required>
                 <option value="">Select Carrier</option>
                 <option value="UPS">UPS</option>
                 <option value="FedEx">FedEx</option>
@@ -99,7 +98,7 @@ h2 {
         <!-- Shipping Method -->
         <div class="form-group">
             <label for="method">Shipping Method <span class="text-danger">*</span></label>
-            <select class="form-control" id="method" required>
+            <select class="form-control" ng-model="shippingDetails.method" required>
                 <option value="">Select Method</option>
                 <option value="Standard">Standard (5-7 Business Days)</option>
                 <option value="Express">Express (2-3 Business Days)</option>
@@ -112,7 +111,7 @@ h2 {
     </form>
 
     <!-- Display Shipping Selection as JSON -->
-    <div id="output" class="mt-4"></div>
+    <div id="output" class="mt-4">{{ shippingDetails | json }}</div>
 </div>
 
 <!-- Footer -->
@@ -125,52 +124,32 @@ h2 {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-	<!-- JSON -->
-	<script>
-   document.getElementById('shippingForm').addEventListener('submit',
-		function(event) {
-        event.preventDefault();
-
-        const destination = document.getElementById('destination').value;
-        const carrier = document.getElementById('carrier').value;
-        const method = document.getElementById('method').value;
-
-        const shippingDetails = {
-            destination: destination,
-            carrier: carrier,
-            method: method
-        };
-
-        console.log(JSON.stringify(shippingDetails, null, 2));
-
-        localStorage.setItem('shippingDetails', JSON.stringify(shippingDetails));
-    });
-</script>
-
-<!-- AJAX-->
 <script>
-function sendShippingDetails(details) {
-    $.ajax({
-        url: 'https://api.example.com/shipping',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(details),
-        success: function(response) {
-            console.log("Shipping details sent:", response);
-        },
-        error: function(error) {
-            console.error("Error sending shipping details:", error);
-        }
-    });
-}
+angular.module('shippingApp', [])
+.controller('ShippingController', function($scope, $http) {
+    $scope.shippingDetails = {};
 
-// Example usage:
-let shippingDetails = {
-    address: "123 Main St",
-    carrier: "FedEx",
-    method: "Express"
-};
-sendShippingDetails(shippingDetails);
+    $scope.submitShippingForm = function() {
+        console.log(JSON.stringify($scope.shippingDetails, null, 2));
+        localStorage.setItem('shippingDetails', JSON.stringify($scope.shippingDetails));
+        sendShippingDetails($scope.shippingDetails);
+    };
+
+    function sendShippingDetails(details) {
+        $.ajax({
+            url: 'https://api.example.com/shipping',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(details),
+            success: function(response) {
+                console.log("Shipping details sent:", response);
+            },
+            error: function(error) {
+                console.error("Error sending shipping details:", error);
+            }
+        });
+    }
+});
 </script>
 
 </body>
