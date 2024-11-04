@@ -146,5 +146,32 @@ h2 {
         localStorage.setItem('shippingDetails', JSON.stringify(shippingDetails));
     });
 </script>
+
+<!-- AJAX-->
+<script>
+function sendShippingDetails(details) {
+    $.ajax({
+        url: 'https://api.example.com/shipping',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(details),
+        success: function(response) {
+            console.log("Shipping details sent:", response);
+        },
+        error: function(error) {
+            console.error("Error sending shipping details:", error);
+        }
+    });
+}
+
+// Example usage:
+let shippingDetails = {
+    address: "123 Main St",
+    carrier: "FedEx",
+    method: "Express"
+};
+sendShippingDetails(shippingDetails);
+</script>
+
 </body>
 </html>
