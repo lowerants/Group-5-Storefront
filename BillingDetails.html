@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penn State Merch Shop</title> 
+</head>
+
+<!-- section is an alternative to div
+ it groups items by theme and makes it more accessibile for screen readers -->
+<section id="billing-details">
+    <h2>Billing Details</h2>
+    <form>
+        <div>
+            <label>Full Name
+                <input type="text" id="full-name" name="full_name" required>
+            </label>
+        </div>
+        <div>
+            <label> Email Address
+                <input type="email" id="email" name="email" required>
+            </label>
+        </div>
+        <div>
+            <label>Shipping Address
+                <!-- text area is basically a multi-row input field -->
+                <textarea id="shipping-address" name="shipping_address" rows="4" required></textarea>
+            </label>
+        </div>
+        <div>
+            <label>Credit Card Number
+                <input type="text" id="credit-card" name="credit_card" required>
+            </label>
+        </div>
+        <div>
+            <label>Expiration Date
+                <input type="month" id="expiration-date" name="expiration_date" required>
+            </label>
+        </div>
+        <button type="submit">Submit Billing Details</button>
+    </form>
+</section>
+
+<section id="product-search">
+    <h2>Search and Add Products</h2>
+    <form>
+        <div>
+            <label> Search for Products
+                <input type="text" id="search" name="search_query" placeholder="Search for products...">
+            </label>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+</section>
+
+<section id="product-list">
+    <h2>Available Products</h2>
+    <div>
+        <!-- Example Product 1 -->
+        <div class="product-item">
+            <img src="https://via.placeholder.com/200" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$29.99</p>
+            <button>Return</button>
+        </div>
+        
+        <!-- Example Product 2 -->
+        <div class="product-item">
+            <img src="https://via.placeholder.com/200" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$49.99</p>
+            <button>Return</button>
+        </div>
+
+        <!-- Example Product 3 -->
+        <div class="product-item">
+            <img src="https://via.placeholder.com/200" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$19.99</p>
+            <button>Return</button>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
