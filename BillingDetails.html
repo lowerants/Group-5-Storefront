@@ -81,6 +81,50 @@
         </div>
     </div>
 </section>
+<script>
+        //JSON
+        const productsForReturn = [
+            { id: 1, name: "Product 1", price: 29.99 },
+            { id: 2, name: "Product 2", price: 49.99 },
+            { id: 3, name: "Product 3", price: 19.99 }
+        ];
 
+        document.getElementById('billing-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const billingData = {
+                fullName: document.getElementById('full-name').value,
+                email: document.getElementById('email').value,
+                shippingAddress: document.getElementById('shipping-address').value,
+                creditCard: document.getElementById('credit-card').value,
+                expirationDate: document.getElementById('expiration-date').value
+            };
+
+            console.log('Billing Details Submitted:', billingData);
+        });
+
+        // AJAX
+        function handleReturn(productId) {
+            const product = productsForReturn.find(item => item.id === productId);
+
+            if (product) {
+                console.log('Returning product:', product);
+
+                
+                fetch('https://example.com/api/returns', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(product)
+                })
+                .then(response => response.json())
+                .then(data => console.log('Return processed:', data))
+                .catch(error => console.error('Error:', error));
+            } else {
+                console.error('Product not found');
+            }
+        }
+    </script>    
 </body>
 </html>
