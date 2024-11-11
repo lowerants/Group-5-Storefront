@@ -1,0 +1,31 @@
+// AngularJS Module and Controller for Billing
+const app = angular.module("BillingApp", []);
+
+app.controller("BillingController", function($scope, $http) {
+    $scope.billingDetails = {};
+
+    // Save billing details
+    $scope.saveBilling = function() {
+        $http.post("/api/billing", $scope.billingDetails).then(() => {
+            alert("Billing details saved!");
+        });
+    };
+});
+
+// AngularJS Module and Controller for Returns
+app.controller("ReturnsController", function($scope, $http) {
+    $scope.returnableItems = [];
+    $scope.returnRequest = {};
+
+    // Load items
+    $http.get("/api/returns").then(response => {
+        $scope.returnableItems = response.data;
+    });
+
+    // Submit return request
+    $scope.submitReturn = function() {
+        $http.post("/api/return-request", $scope.returnRequest).then(() => {
+            alert("Return submitted!");
+        });
+    };
+});

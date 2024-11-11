@@ -1,0 +1,38 @@
+// jQuery for Billing Details Form Submission
+$(document).ready(function() {
+    $("#billing-form").submit(function(event) {
+        event.preventDefault();
+        const name = $("#billing-name").val();
+        const address = $("#billing-address").val();
+        const card = $("#billing-card").val();
+
+        if (name && address && card) {
+            alert("Billing details saved!");
+        } else {
+            alert("Please complete all fields.");
+        }
+    });
+});
+
+
+//jQeury for returns page
+$(document).ready(function() {
+    // Fetch returnable items
+    $.get("/api/returns", function(items) {
+        items.forEach(item => {
+            $("#return-item").append(`<option value="${item.id}">${item.name}</option>`);
+        });
+    });
+
+    // Submit return
+    $("#submit-return").click(function() {
+        const itemId = $("#return-item").val();
+        const reason = $("#return-reason").val();
+
+        if (itemId && reason) {
+            alert("Return submitted!");
+        } else {
+            alert("Please select an item and provide a reason.");
+        }
+    });
+});
