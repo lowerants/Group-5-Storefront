@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h2 {
+            color: #002d72; /* Penn State Blue */
+            font-weight: bold;
+        }
+        .navbar {
+            background-color: #002d72; /* Penn State Blue */
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .btn-primary {
+            background-color: #002d72; /* Penn State Blue */
+            border-color: #002d72;
+        }
+        .btn-primary:hover {
+            background-color: #ffffff; /* White on hover */
+            color: #002d72;
+            border-color: #002d72;
+        }
+        .footer {
+            background-color: #002d72;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="../Desktop/my_first_webpage/index.html/index.html">Penn State Merchandise <img alt="i" src="https://seeklogo.com/images/P/penn-state-nittany-lions-logo-F0E68D2F94-seeklogo.com.png" width="45" style="vertical-align:middle;margin:0px 20px"></a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                    <a class="nav-link" href="project.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="returns.html">Returns</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product-management.html">Management</a>
+                </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2>Product Management</h2>
+
+    <form id="productForm">
+        <input type="hidden" id="productId" />
+        <input type="text" id="productName" placeholder="Product Name" required />
+        <input type="number" id="productPrice" placeholder="Price" required />
+        <input type="number" id="productQuantity" placeholder="Quantity" required />
+        <button type="submit">Add Product</button>
+        <button type="button" id="cancelEdit" style="display: none;">Cancel Edit</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="productTable">
+            <!-- Products will be dynamically loaded here -->
+        </tbody>
+    </table>
+
+    <script>
+        const apiBase = 'http://localhost:3000/products'; // Replace with your API base URL
+        const productForm = document.getElementById('productForm');
+        const productTable = document.getElementById('productTable');
+        const cancelEditBtn = document.getElementById('cancelEdit');
+
+        let isEditing = false;
+
+        // Fetch and display products
+        async function loadProducts() {
+            const response = await fetch(apiBase);
+            const products = await response.json();
+            productTable.innerHTML = '';
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>$${product.price.toFixed(2)}</td>
+                    <td>${product.Quantity}</td>
+                    <td>
+                        <button onclick="editProduct('${product._id}', '${product.name}', ${product.price}, ${product.Quantity})">Edit</button>
+                        <button onclick="deleteProduct('${product._id}')">Delete</button>
+                    </td>
+                `;
+                productTable.appendChild(row);
+            });
+        }
+
+        // Add or edit a product
+        productForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const name = document.getElementById('productName').value;
+            const price = document.getElementById('productPrice').value;
+            const Quantity = document.getElementById('productQuantity').value;
+
+            if (isEditing) {
+                const id = document.getElementById('productId').value;
+                await fetch(`${apiBase}/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, price, Quantity })
+                });
+                isEditing = false;
+                cancelEditBtn.style.display = 'none';
+            } else {
+                await fetch(apiBase, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, price, Quantity })
+                });
+            }
+
+            productForm.reset();
+            loadProducts();
+        });
+
+        // Edit a product
+        window.editProduct = (id, name, price, Quantity) => {
+            isEditing = true;
+            document.getElementById('productId').value = id;
+            document.getElementById('productName').value = name;
+            document.getElementById('productPrice').value = price;
+            document.getElementById('productQuantity').value = Quantity;
+            cancelEditBtn.style.display = 'inline-block';
+        };
+
+        // Cancel edit
+        cancelEditBtn.addEventListener('click', () => {
+            isEditing = false;
+            productForm.reset();
+            cancelEditBtn.style.display = 'none';
+        });
+
+        // Delete a product
+        window.deleteProduct = async (id) => {
+            await fetch(`${apiBase}/${id}`, { method: 'DELETE' });
+            loadProducts();
+        };
+
+        // Load products on page load
+        loadProducts();
+    </script> 
+	</div>
+	</body>
+</html>
