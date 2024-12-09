@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penn State Merch Shop</title>
 
-    <!-- Bootstrap CSS (For Professional Look) -->
+    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -14,12 +14,12 @@
         }
 
         h2 {
-            color: #002d72; /* Penn State Blue */
+            color: #002d72;
             font-weight: bold;
         }
 
         .navbar {
-            background-color: #002d72; /* Penn State Blue */
+            background-color: #002d72;
         }
 
         .navbar-brand, .nav-link {
@@ -32,12 +32,12 @@
         }
 
         .btn-primary {
-            background-color: #002d72; /* Penn State Blue */
+            background-color: #002d72;
             border-color: #002d72;
         }
 
         .btn-primary:hover {
-            background-color: #ffffff; /* White on hover */
+            background-color: #ffffff;
             color: #002d72;
             border-color: #002d72;
         }
@@ -49,24 +49,26 @@
             text-align: center;
             margin-top: 30px;
         }
-    </style>
-      <style>
+
         .product-title {
-          color: #00274d; /* Penn State dark blue */
-          font-weight: 600;
+            color: #00274d;
+            font-weight: 600;
         }
+
         .product-price {
-          color: #0056b3;
-          font-weight: bold;
+            color: #0056b3;
+            font-weight: bold;
         }
+
         .btn-custom {
-          background-color: #0056b3;
-          color: white;
+            background-color: #0056b3;
+            color: white;
         }
+
         .btn-custom:hover {
-          background-color: #003f88;
+            background-color: #003f88;
         }
-      </style>
+    </style>
 </head>
 <body>
 
@@ -81,17 +83,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                 <li class="nav-item">
+                    <a class="nav-link" href="project.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="shop.html">Shop</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="returns.html">Returns</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">My Shopper</a>
+                    <a class="nav-link" href="product-management.html">Management</a>
                 </li>
             </ul>
         </div>
@@ -99,156 +104,209 @@
 
     <!-- Main Content -->
     <div class="container mt-5">
-        <h2 class="mb-4">Order Your Favorite Penn State Gear!</h2>
-        <form id="orderForm">
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="product" class="form-label">Select Product</label>
-                    <select class="form-select form-control" id="product" required>
-                        <option value="" selected disabled>Choose...</option>
-                        <option value="T-Shirt">T-Shirt</option>
-                        <option value="Hoodie">Hoodie</option>
-                        <option value="Hat">Hat</option>
-                        <option value="Mug">Mug</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="size" class="form-label">Select Size</label>
-                    <select class="form-select form-control" id="size" required>
-                        <option value="" selected disabled>Choose size...</option>
-                        <option value="Small">Small</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Large">Large</option>
-                        <option value="X-Large">X-Large</option>
-                    </select>
-                </div>
+        <h2 class="mb-4 text-center">Products</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          
+          <!-- Product Card 1 -->
+          <div class="col">
+            <div class="card h-100">
+              <p class="card-text">ID: shirt1</p>
+              <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_t_shirt_arching_over_lion_head_navy_nittany_lions_psu_003psu_p3814.jpg" class="card-img-top" alt="T-shirt">
+              <div class="card-footer text-center">
+                <h5 class="card-title product-title">Penn State T-Shirt</h5>
+                <p class="card-text">Classic Penn State T-shirt for any fan.</p>
+                <p class="card-text">Category: clothes </p>
+                <p class="card-text">Weight: 2oz</p>
+                <p class="product-price">$19.99</p>
+                <a href="#" class="btn btn-custom add-to-cart" 
+                   data-id="shirt1" 
+                   data-name="Penn State T-shirt" 
+                   data-price="19.99" 
+                   data-category="clothes"
+                   data-weight="2oz">Add to Cart</a>
+              </div>
             </div>
+          </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="quantity" class="form-label">Quantity</label>
-                    <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" required min="1">
-                </div>
-                <div class="col-md-6">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                </div>
+          <!-- Product Card 2 -->
+          <div class="col">
+            <div class="card h-100">
+              <p class="card-text">ID: hoodie1</p>
+              <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_hooded_sweatshirt_arching_over_lion_head_navy_nittany_lions_psu_102psu_p4572.jpg" class="card-img-top" alt="Hoodie">
+              <div class="card-body text-center">
+                <h5 class="card-title product-title">Penn State Hoodie</h5>
+                <p class="card-text">Stay warm with this soft and stylish Penn State hoodie.</p>
+                <p class="card-text">Category: clothes </p>
+                <p class="card-text">Weight: 4oz</p>
+                <p class="product-price">$39.99</p>
+                <a href="#" class="btn btn-custom add-to-cart" 
+                   data-id="hoodie1" 
+                   data-name="Penn State Hoodie" 
+                   data-price="39.99" 
+                   data-category="clothes"
+                   data-weight="4oz">Add to Cart</a>
+              </div>
             </div>
+          </div>
 
-            <button type="submit" class="btn btn-primary" style="margin: 20px 0;">Submit Order</button>
-        </form>
+          <!-- Product Card 3 -->
+          <div class="col">
+            <div class="card h-100">
+              <p class="card-text">ID: cap1</p>
+              <img src="https://www.lions-pride.com/cdn/shop/products/1513870.jpg?v=1676050325&width=1280" class="card-img-top" alt="Cap">
+              <div class="card-body text-center">
+                <h5 class="card-title product-title">Penn State Cap</h5>
+                <p class="card-text">Classic Penn State cap, perfect for any fan.</p>
+                <p class="card-text">Category: accessories </p>
+                <p class="card-text">Weight: 1oz</p>
+                <p class="product-price">$14.99</p>
+                <a href="#" class="btn btn-custom add-to-cart" 
+                   data-id="cap1" 
+                   data-name="Penn State Cap" 
+                   data-price="14.99" 
+                   data-category="accessories"
+                   data-weight="1oz">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
     </div>
-
-      <!-- Header Section -->
-  <!-- <header class="bg-primary text-white text-center py-4">
-    <h1 class="display-4">Penn State Merchandise Store</h1>
-    <p class="lead">Shop for Your Favorite Penn State Gear!</p>
-  </header> -->
-
-  <!-- Product Management Section -->
-  <div class="container mt-5">
-    <h2 class="mb-4 text-center">Our Products</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      
-      <!-- Product Card 1 -->
-      <div class="col">
-        <div class="card h-100">
-          <p class="card-text">ID: shirt1 </p>
-          <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_t_shirt_arching_over_lion_head_navy_nittany_lions_psu_003psu_p3814.jpg" class="card-img-top" alt="T-shirt">
-          <div class="card-body text-center">
-            <h5 class="card-title product-title">Penn State T-shirt</h5>
-            <p class="card-text">Comfortable and high-quality cotton T-shirt with Penn State logo.</p>            <p class="card-text">Category: clothes </p>
-            <p class="card-text">Weight: 2oz</p>
-            <p class="product-price">$19.99</p>
-          </div>
-          <div class="card-footer text-center">
-            <a href="#" class="btn btn-custom">Add to Cart</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product Card 2 -->
-      <div class="col">
-        <div class="card h-100">
-          <p class="card-text">ID: hoodie1 </p>
-          <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_hooded_sweatshirt_arching_over_lion_head_navy_nittany_lions_psu_102psu_p4572.jpg" class="card-img-top" alt="Hoodie">
-          <div class="card-body text-center">
-            <h5 class="card-title product-title">Penn State Hoodie</h5>
-            <p class="card-text">Stay warm with this soft and stylish Penn State hoodie.</p>
-            <p class="card-text">Category: clothes </p>
-            <p class="card-text">Weight: 4oz</p>
-            <p class="product-price">$39.99</p>
-          </div>
-          <div class="card-footer text-center">
-            <a href="#" class="btn btn-custom">Add to Cart</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product Card 3 -->
-      <div class="col">
-        <div class="card h-100">
-          <p class="card-text">ID: cap1 </p>
-          <img src="https://www.lions-pride.com/cdn/shop/products/1513870.jpg?v=1676050325&width=1280" class="card-img-top" alt="Cap">
-          <div class="card-body text-center">
-            <h5 class="card-title product-title">Penn State Cap</h5>
-            <p class="card-text">Classic Penn State cap, perfect for any fan.</p>
-            <p class="card-text">Category: accessories </p>
-            <p class="card-text">Weight: 1oz</p>
-            <p class="product-price">$14.99</p>
-          </div>
-          <div class="card-footer text-center">
-            <a href="#" class="btn btn-custom">Add to Cart</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
     <!-- Footer -->
-    <div class="footer">
+    <footer class="footer">
         <p>&copy; 2024 Penn State Merch Storefront. All Rights Reserved.</p>
-    </div>
+    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- JavaScript for Form Validation and Submission -->
+    <!-- JavaScript for "Add to Cart" Button -->
     <script>
-        document.getElementById("orderForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+    // JavaScript for "Add to Cart" Button
+function addToCart(productId, name, price, category, weight) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Get existing cart or create new
+    const item = {
+        productId,
+        name,
+        price,
+        category,
+        weight,
+        quantity: 1, // Default quantity is 1
+    };
 
-            // Collect form data
-            const product = document.getElementById("product").value;
-            const size = document.getElementById("size").value;
-            const quantity = document.getElementById("quantity").value;
-            const email = document.getElementById("email").value;
+    cart.push(item); // Add the item to the cart
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart
 
-            // Check for required fields
-            if (!product || !size || !quantity || !email) {
-                alert("Please fill in all fields.");
-                return;
-            }
-            const order = {
-                product: product,
-                size: size,
-                quantity: quantity,
-                email: email
-            };
+    console.log('Item added to cart');
+    updateCartUI();  // Update the cart icon or UI (optional)
+}
 
-            // This will convert the order to a JSON string
-            const orderJSON = JSON.stringify(order);
+// Event listener for the "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        const name = this.getAttribute('data-name');
+        const price = this.getAttribute('data-price');
+        const category = this.getAttribute('data-category');
+        const weight = this.getAttribute('data-weight');
 
-            // This will display the JSON in the console 
-            console.log("Order JSON:", orderJSON);
+        addToCart(productId, name, price, category, weight);
+    });
+});
 
-            // Display an alert for successful submission
-            alert(`Order Summary:\n\nProduct: ${product}\nSize: ${size}\nQuantity: ${quantity}\nEmail: ${email}\n\nThank you for your order!`);
-        });
-    </script>
+// Event listener for the "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        const name = this.getAttribute('data-name');
+        const price = this.getAttribute('data-price');
+        const category = this.getAttribute('data-category');
+        const weight = this.getAttribute('data-weight');
+
+        addToCart(productId, name, price, category, weight);
+    });
+});
+
+</script>
+	<script>
+    const presetProducts = [
+        {
+            id: 'shirt1',
+            name: 'Penn State T-Shirt',
+            price: 19.99,
+            category: 'clothes',
+            weight: '2oz',
+            quantity: 10,
+            imgSrc: 'https://images.nittanyweb.com/scs/images/products/15/original/penn_state_t_shirt_arching_over_lion_head_navy_nittany_lions_psu_003psu_p3814.jpg'
+        },
+        {
+            id: 'hoodie1',
+            name: 'Penn State Hoodie',
+            price: 39.99,
+            category: 'clothes',
+            weight: '4oz',
+            quantity: 5,
+            imgSrc: 'https://images.nittanyweb.com/scs/images/products/15/original/penn_state_hooded_sweatshirt_arching_over_lion_head_navy_nittany_lions_psu_102psu_p4572.jpg'
+        },
+        {
+            id: 'cap1',
+            name: 'Penn State Cap',
+            price: 14.99,
+            category: 'accessories',
+            weight: '1oz',
+            quantity: 15,
+            imgSrc: 'https://www.lions-pride.com/cdn/shop/products/1513870.jpg?v=1676050325&width=1280'
+        }
+    ];
+
+    async function loadProducts() {
+        try {
+            const response = await fetch('http://localhost:3000/products');
+            const serverProducts = await response.json();
+
+            // Combine preset products with server products
+            const allProducts = [...presetProducts, ...serverProducts.map(product => ({
+                id: product._id,
+                name: product.name,
+                price: product.price,
+                category: 'Custom Category', // Default category
+                weight: 'Custom Weight',     // Default weight
+                quantity: product.quantity,
+                imgSrc: 'placeholder-image.jpg' // Placeholder image
+            }))];
+
+            // Render all products
+            const productContainer = document.querySelector('.row');
+            productContainer.innerHTML = ''; // Clear existing products
+            allProducts.forEach(product => {
+                const productCard = `
+                    <div class="col">
+                        <div class="card h-100">
+                            <p class="card-text">ID: ${product.id}</p>
+                            <img src="${product.imgSrc}" class="card-img-top" alt="${product.name}">
+                            <div class="card-footer text-center">
+                                <h5 class="card-title product-title">${product.name}</h5>
+                                <p class="card-text">Category: ${product.category}</p>
+                                <p class="card-text">Weight: ${product.weight}</p>
+                                <p class="product-price">$${product.price.toFixed(2)}</p>
+                                <p class="card-text">Quantity: ${product.quantity}</p>
+                                <a href="#" class="btn btn-custom">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>`;
+                productContainer.insertAdjacentHTML('beforeend', productCard);
+            });
+        } catch (error) {
+            console.error('Error loading products:', error);
+        }
+    }
+
+    // Load products on page load
+    document.addEventListener('DOMContentLoaded', loadProducts);
+</script>
 
 </body>
 </html>
