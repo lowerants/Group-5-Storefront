@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Penn State Merch Shop</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            color: #002d72;
+            font-weight: bold;
+        }
+
+        .navbar {
+            background-color: #002d72;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            background-color: #002d72;
+            border-color: #002d72;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            color: #002d72;
+            border-color: #002d72;
+        }
+
+        .footer {
+            background-color: #002d72;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">
+            Penn State Merchandise 
+            <img alt="Penn State Logo" src="https://seeklogo.com/images/P/penn-state-nittany-lions-logo-F0E68D2F94-seeklogo.com.png" width="45" style="vertical-align:middle;margin:0px 20px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="project.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="project.html">My Shopper</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cart Content -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Your Shopping Cart</h2>
+
+        <!-- Cart items will be displayed here, this can be dynamically populated with JavaScript -->
+        <div id="cart-items">
+            <!-- Dynamically populated cart items will go here -->
+        </div>
+
+        <!-- Order Button -->
+        <div class="text-center mt-4">
+            <a href="shipping.html" class="btn btn-primary btn-lg">Order</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Penn State Merch Storefront. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   
+<script>
+    async function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart from localStorage
+
+        const cartContainer = document.getElementById('cart-items');
+        cartContainer.innerHTML = ''; // Clear existing items
+
+        cart.forEach(item => {
+            const productElement = document.createElement('div');
+            productElement.classList.add('cart-item');
+            productElement.innerHTML = 
+                <h5>${item.name}</h5>
+                <p>Price: $${item.price}</p>
+                <p>Quantity: ${item.quantity}</p>
+                <p>Category: ${item.category}</p>
+                <p>Weight: ${item.weight}</p>
+            ;
+            cartContainer.appendChild(productElement);
+        });
+    }
+
+    // Load the cart when the page loads
+    window.onload = loadCart;
+</script>
+
+
+</body>
+</html>
