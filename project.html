@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penn State Merch Shop</title>
+
+    <!-- Bootstrap CSS (For Professional Look) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            color: #002d72; /* Penn State Blue */
+            font-weight: bold;
+        }
+
+        .navbar {
+            background-color: #002d72; /* Penn State Blue */
+        }
+
+        .navbar-brand, .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            background-color: #002d72; /* Penn State Blue */
+            border-color: #002d72;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff; /* White on hover */
+            color: #002d72;
+            border-color: #002d72;
+        }
+
+        .footer {
+            background-color: #002d72;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+      <style>
+        .product-title {
+          color: #00274d; /* Penn State dark blue */
+          font-weight: 600;
+        }
+        .product-price {
+          color: #0056b3;
+          font-weight: bold;
+        }
+        .btn-custom {
+          background-color: #0056b3;
+          color: white;
+        }
+        .btn-custom:hover {
+          background-color: #003f88;
+        }
+      </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">
+            Penn State Merchandise 
+            <img alt="Penn State Logo" src="https://seeklogo.com/images/P/penn-state-nittany-lions-logo-F0E68D2F94-seeklogo.com.png" width="45" style="vertical-align:middle;margin:0px 20px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="project.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="returns.html">Returns</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product-management.html">Management</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Order Your Favorite Penn State Gear!</h2>
+		<img style="width: 100%;" src= "psu.jpeg" />
+        
+
+      <!-- Header Section -->
+  <!-- <header class="bg-primary text-white text-center py-4">
+    <h1 class="display-4">Penn State Merchandise Store</h1>
+    <p class="lead">Shop for Your Favorite Penn State Gear!</p>
+  </header> -->
+
+  <!-- Product Management Section -->
+  <div class="container mt-5">
+    <h2 class="mb-4 text-center">Our Products</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      
+      <!-- Product Card 1 -->
+      <div class="col">
+        <div class="card h-100">
+          <p class="card-text">ID: shirt1 </p>
+          <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_t_shirt_arching_over_lion_head_navy_nittany_lions_psu_003psu_p3814.jpg" class="card-img-top" alt="T-shirt">
+          <div class="card-body text-center">
+            <h5 class="card-title product-title">Penn State T-shirt</h5>
+            <p class="card-text">Comfortable and high-quality cotton T-shirt with Penn State logo.</p>            <p class="card-text">Category: clothes </p>
+            <p class="card-text">Weight: 2oz</p>
+            <p class="product-price">$19.99</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-custom">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col">
+        <div class="card h-100">
+          <p class="card-text">ID: hoodie1 </p>
+          <img src="https://images.nittanyweb.com/scs/images/products/15/original/penn_state_hooded_sweatshirt_arching_over_lion_head_navy_nittany_lions_psu_102psu_p4572.jpg" class="card-img-top" alt="Hoodie">
+          <div class="card-body text-center">
+            <h5 class="card-title product-title">Penn State Hoodie</h5>
+            <p class="card-text">Stay warm with this soft and stylish Penn State hoodie.</p>
+            <p class="card-text">Category: clothes </p>
+            <p class="card-text">Weight: 4oz</p>
+            <p class="product-price">$39.99</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-custom">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col">
+        <div class="card h-100">
+          <p class="card-text">ID: cap1 </p>
+          <img src="https://www.lions-pride.com/cdn/shop/products/1513870.jpg?v=1676050325&width=1280" class="card-img-top" alt="Cap">
+          <div class="card-body text-center">
+            <h5 class="card-title product-title">Penn State Cap</h5>
+            <p class="card-text">Classic Penn State cap, perfect for any fan.</p>
+            <p class="card-text">Category: accessories </p>
+            <p class="card-text">Weight: 1oz</p>
+            <p class="product-price">$14.99</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-custom">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<form id="orderForm">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="product" class="form-label">Select Product</label>
+                    <select class="form-select form-control" id="product" required>
+                        <option value="" selected disabled>Choose...</option>
+                        <option value="T-Shirt">T-Shirt</option>
+                        <option value="Hoodie">Hoodie</option>
+                        <option value="Hat">Hat</option>
+                        <option value="Mug">Mug</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="size" class="form-label">Select Size</label>
+                    <select class="form-select form-control" id="size" required>
+                        <option value="" selected disabled>Choose size...</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="X-Large">X-Large</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" required min="1">
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin: 20px 0;">Submit Order</button>
+        </form>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Penn State Merch Storefront. All Rights Reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Form Validation and Submission -->
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const product = document.getElementById("product").value;
+            const size = document.getElementById("size").value;
+            const quantity = document.getElementById("quantity").value;
+            const email = document.getElementById("email").value;
+
+            // Check for required fields
+            if (!product || !size || !quantity || !email) {
+                alert("Please fill in all fields.");
+                return;
+            }
+            const order = {
+                product: product,
+                size: size,
+                quantity: quantity,
+                email: email
+            };
+
+            // This will convert the order to a JSON string
+            const orderJSON = JSON.stringify(order);
+
+            // This will display the JSON in the console 
+            console.log("Order JSON:", orderJSON);
+
+            // Display an alert for successful submission
+            alert(`Order Summary:\n\nProduct: ${product}\nSize: ${size}\nQuantity: ${quantity}\nEmail: ${email}\n\nThank you for your order!`);
+        });
+    </script>
+
+</body>
+</html>
